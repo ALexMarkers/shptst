@@ -1,0 +1,431 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "{{ shop.brand.cover_image }}",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Talk about your brand<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p><p><\/p><p><\/p><p><a href=\"tel:123-456-7890\" title=\"tel:123-456-7890\">3809999<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "collage": {
+      "type": "collage",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "product": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "product",
+        "collection-1"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "baa6befc-654c-46e0-81c4-c0c85d5483d5": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-2": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-3": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-4": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-5": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-6": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "c49cd0e2-94f1-4823-8744-e96c0b8c4b66": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "213\n{{ product.title }}"
+          }
+        }
+      },
+      "block_order": [
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-0",
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-1",
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-2",
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-3",
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-4",
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-5",
+        "template--16039226998963__baa6befc-654c-46e0-81c4-c0c85d5483d5-1673258100c88f2181-6",
+        "c49cd0e2-94f1-4823-8744-e96c0b8c4b66"
+      ],
+      "settings": {
+        "product": "4mm-5mm-6mm-balldriver-y-wrench",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "media_position": "left",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "d6a25b66-9973-44d5-a765-80ccc1394639": {
+      "type": "some-sect-form",
+      "blocks": {
+        "81cb7ee6-c2e9-4577-b564-b27774997029": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "Some",
+            "heading_text_position": "center"
+          }
+        },
+        "44dc68c4-3b94-4cf3-87b6-498ef3d014ed": {
+          "type": "separator",
+          "settings": {
+          }
+        },
+        "59dc47ae-9f29-4b2d-b900-c287f4fad0a8": {
+          "type": "text_content",
+          "settings": {
+            "text_content": "<p>some<\/p>",
+            "text_content_position": "left"
+          }
+        },
+        "d474d0cd-61a7-4a39-94fb-cdcd6247b1eb": {
+          "type": "text_input",
+          "settings": {
+            "input_type": "text",
+            "text_input_required": false,
+            "text_input_label": "Test input",
+            "text_input_name": "Test input",
+            "text_input_placeholder": "Test input",
+            "text_input_bottom_text": "",
+            "text_input_width": "100"
+          }
+        },
+        "caadfa06-ad40-4523-8896-d55075388027": {
+          "type": "email_input",
+          "settings": {
+            "email_input_label": "Test input",
+            "email_input_placeholder": "Test input",
+            "email_input_bottom_text": "",
+            "email_input_width": "100"
+          }
+        },
+        "aa71058c-4a3e-4f2b-8ba7-3426156f9f42": {
+          "type": "select_input",
+          "settings": {
+            "select_input_required": true,
+            "select_input_label": "Slect input",
+            "select_input_name": "Slect",
+            "select_input_placeholder": "Slect",
+            "select_input_options_values": "Select-v;\nSelect2-v;\nSelect3-v;",
+            "select_input_options_labels": "Select;\nSelect2;\nSelect3;",
+            "select_input_bottom_text": "",
+            "select_input_width": "100"
+          }
+        },
+        "3c5e015a-c129-4427-9403-ed790480ee29": {
+          "type": "textarea_input",
+          "settings": {
+            "textarea_input_required": false,
+            "textarea_input_label": "",
+            "textarea_input_name": "Textarea",
+            "textarea_input_placeholder": "",
+            "textarea_input_bottom_text": "",
+            "textarea_input_width": "100"
+          }
+        },
+        "549eb423-f335-4839-915f-e76fdb750294": {
+          "type": "checkbox_input",
+          "settings": {
+            "checkbox_input_required": false,
+            "checkbox_input_label": "Some",
+            "checkbox_input_options_names": "Op1;\nOp2;\nOp3;",
+            "checkbox_input_options_values": "enable1;\nenable2;\nenable3;",
+            "checkbox_input_options_labels": "Checked1;\nChecked2;\nChecked3;",
+            "checkbox_input_bottom_text": "",
+            "checkbox_input_width": "100"
+          }
+        },
+        "6aca9d0e-5cfe-4ab1-b1ee-f9f3dc5e9728": {
+          "type": "radiobutton_input",
+          "settings": {
+            "radiobutton_type": "checkbox",
+            "radiobutton_input_required": false,
+            "radiobutton_input_label": "",
+            "radiobutton_input_name": "Radio",
+            "radiobutton_input_options_values": "Radio-c1;\nRadio-c2;\nRadio-c3;",
+            "radiobutton_input_options_labels": "Radio-1;\nRadio-2;\nRadio-3;",
+            "radiobutton_input_bottom_text": "",
+            "radiobutton_input_width": "100"
+          }
+        },
+        "9990ccb1-3cac-4a73-80b7-9e6cb3779d38": {
+          "type": "submit_button",
+          "settings": {
+            "submit_button_text": "Submit",
+            "submit_button_position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "81cb7ee6-c2e9-4577-b564-b27774997029",
+        "44dc68c4-3b94-4cf3-87b6-498ef3d014ed",
+        "59dc47ae-9f29-4b2d-b900-c287f4fad0a8",
+        "d474d0cd-61a7-4a39-94fb-cdcd6247b1eb",
+        "caadfa06-ad40-4523-8896-d55075388027",
+        "aa71058c-4a3e-4f2b-8ba7-3426156f9f42",
+        "3c5e015a-c129-4427-9403-ed790480ee29",
+        "549eb423-f335-4839-915f-e76fdb750294",
+        "6aca9d0e-5cfe-4ab1-b1ee-f9f3dc5e9728",
+        "9990ccb1-3cac-4a73-80b7-9e6cb3779d38"
+      ],
+      "settings": {
+        "main_heading_text": "Some",
+        "main_heading_text_position": "center",
+        "main_text_content": "<p>Some<\/p>",
+        "main_text_content_position": "center",
+        "success_message": "Thanks for subscribing",
+        "message_position": "center"
+      }
+    },
+    "0110f9e8-5cd3-46f4-ba2a-51d0ce2bb0b0": {
+      "type": "video",
+      "settings": {
+        "heading": "Video",
+        "heading_size": "h1",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "rich_text",
+    "featured_collection",
+    "collage",
+    "video",
+    "multicolumn",
+    "baa6befc-654c-46e0-81c4-c0c85d5483d5",
+    "d6a25b66-9973-44d5-a765-80ccc1394639",
+    "0110f9e8-5cd3-46f4-ba2a-51d0ce2bb0b0"
+  ]
+}

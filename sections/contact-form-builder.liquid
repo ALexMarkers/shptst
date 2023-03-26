@@ -1,0 +1,1112 @@
+{{- "contact-form.css" | asset_url | stylesheet_tag -}}
+{%- assign blocks = section.blocks -%}
+
+{%- assign main_heading_text = section.settings.main_heading_text -%}
+{%- assign main_heading_text_position = section.settings.main_heading_text_position -%}
+{%- assign main_text_content = section.settings.main_text_content -%}
+{%- assign main_text_content_position = section.settings.main_text_content_position -%}
+{%- assign success_message = section.settings.success_message | default: "Thanks for subscribing" -%}
+{%- assign message_position = section.settings.message_position -%}
+
+{%- capture main_heading_text_position_variable -%}
+  --text-position: {{- main_heading_text_position -}};
+{%- endcapture -%}
+
+{%- capture main_text_content_position_variable -%}
+  --text-position: {{- main_text_content_position -}};
+{%- endcapture -%}
+
+
+{%- capture form_content -%}
+  {%- for block in blocks -%}
+    {%- case block.type -%}
+      {%- when 'heading' -%}
+        {%- assign heading_text = block.settings.heading_text -%}
+        {%- assign heading_text_position = block.settings.heading_text_position -%}
+        {%- capture heading_text_position_variable -%}
+          --text-position: {{- heading_text_position -}};
+        {%- endcapture -%}
+
+        {%- if heading_text != blank -%}
+          <div class="contact-form__element contact-form__element--big-spacing">
+            <h2 class="contact-form__heading"
+                style="{{ heading_text_position_variable }}"
+            >
+              {{- heading_text -}}
+            </h2>
+          </div>
+        {%- endif -%}
+      {%- when 'text_content' -%}
+        {%- assign text_content = block.settings.text_content -%}
+        {%- assign text_content_position = block.settings.text_content_position -%}
+        {%- capture text_content_position_variable -%}
+          --text-position: {{- text_content_position -}};
+        {%- endcapture -%}
+
+        {% if text_content != blank %}
+          <div class="contact-form__element">
+            <div class="contact-form__text-content"
+                 style="{{- text_content_position_variable -}}"
+            >
+              {{- text_content -}}
+            </div>
+          </div>
+        {% endif %}
+      {%- when 'separator' -%}
+        <div class="contact-form__element contact-form__element--big-spacing">
+          <div class="contact-form__separator">
+          </div>
+        </div>
+      {%- when 'text_input' -%}
+        {%- assign input_type = block.settings.input_type -%}
+        {%- assign text_input_required = block.settings.text_input_required -%}
+        {%- assign text_input_label = block.settings.text_input_label -%}
+        {%- assign text_input_name = block.settings.text_input_name -%}
+        {%- assign text_input_placeholder = block.settings.text_input_placeholder -%}
+        {%- assign text_input_bottom_text = block.settings.text_input_bottom_text -%}
+        {%- assign text_input_icon = block.settings.text_input_icon -%}
+        {%- assign text_input_width = block.settings.text_input_width -%}
+        {%- assign text_input_id = block.settings.text_input_name | handleize | append: block.id -%}
+        {%- assign input_type_attributes = '' -%}
+
+        {%- capture input_type_attributes -%}
+          {%- case input_type -%}
+            {%- when 'text' -%}
+              type="text"
+            {%- when 'number' -%}
+              type="number" step=".01" min="0"
+            {%- when 'phone' -%}
+              type="text" pattern="[0-9\+\(\)\- ]"
+          {%- endcase -%}
+        {%- endcapture -%}
+
+        {%- assign input_icon_class = '' -%}
+
+        {%- capture text_input_width_variable -%}
+          --form-element-width:{{- text_input_width -}}%;
+        {%- endcapture -%}
+
+        {%- if text_input_icon != blank -%}
+          {%- assign input_icon_class = 'contact-form__input--with-icon' -%}
+        {%- endif -%}
+
+        {%- if text_input_name != blank -%}
+          <div class="contact-form__element"
+               style="{{- text_input_width_variable -}}"
+          >
+            <div class="contact-form__input-container">
+              {%- if text_input_label != blank -%}
+                <label for="{{- text_input_id -}}"
+                       class="contact-form__input-label"
+                >
+                  {{- text_input_label -}}
+                </label>
+              {%- endif -%}
+
+              <div class="contact-form__input-wrapper"
+              >
+                <input name="contact[{{- text_input_name -}}]"
+                       placeholder="{{- text_input_placeholder -}}"
+                       id="{{- text_input_id -}}"
+                       class="contact-form__input {{ input_icon_class }}"
+                       {% if text_input_required %}required{% endif %}
+                       {{ input_type_attributes }}
+                />
+
+                {%- if text_input_icon != blank -%}
+                  <span class="contact-form__input-icon"
+                        style="background-image: url('{{- text_input_icon | img_url -}}');"
+                  >
+                  </span>
+                {%- endif -%}
+              </div>
+
+              {%- if text_input_bottom_text != blank -%}
+                <p class="contact-form__input-bottom-text">
+                  {{- text_input_bottom_text -}}
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- when 'email_input' -%}
+        {%- assign email_input_label = block.settings.email_input_label -%}
+        {%- assign email_input_placeholder = block.settings.email_input_placeholder -%}
+        {%- assign email_input_bottom_text = block.settings.email_input_bottom_text -%}
+        {%- assign email_input_width = block.settings.email_input_width -%}
+        {%- assign email_input_id = 'email' | append: section.id -%}
+
+        {%- capture email_input_width_variable -%}
+          --form-element-width: {{- email_input_width -}}%;
+        {%- endcapture -%}
+
+        <div class="contact-form__element"
+             style="{{- email_input_width_variable -}}"
+        >
+          <div class="contact-form__input-container">
+            {%- if email_input_label != blank -%}
+              <label for="{{- email_input_id -}}"
+                     class="contact-form__input-label"
+              >
+                {{- email_input_label -}}
+              </label>
+            {%- endif -%}
+
+            <input type="email"
+                   autocomplete="true"
+                   name="contact[email]"
+                   placeholder="{{- email_input_placeholder -}}"
+                   id="{{- email_input_id -}}"
+                   class="contact-form__input"
+                   required
+            />
+
+            {%- if email_input_bottom_text != blank -%}
+              <p class="contact-form__input-bottom-text">
+                {{- email_input_bottom_text -}}
+              </p>
+            {%- endif -%}
+          </div>
+        </div>
+
+      {%- when 'textarea_input' -%}
+        {%- assign textarea_input_required = block.settings.textarea_input_required -%}
+        {%- assign textarea_input_label = block.settings.textarea_input_label -%}
+        {%- assign textarea_input_name = block.settings.textarea_input_name -%}
+        {%- assign textarea_input_placeholder = block.settings.textarea_input_placeholder -%}
+        {%- assign textarea_input_bottom_text = block.settings.textarea_input_bottom_text -%}
+
+        {%- assign textarea_input_width = block.settings.textarea_input_width -%}
+        {%- assign textarea_input_id = block.settings.textarea_input_name | handleize | append: block.id -%}
+
+        {%- capture textarea_input_width_variable -%}
+          --form-element-width: {{- textarea_input_width -}}%;
+        {%- endcapture -%}
+
+        {%- if textarea_input_name != blank -%}
+          <div class="contact-form__element"
+               style="{{- textarea_input_width_variable -}}"
+          >
+            <div class="contact-form__input-container">
+              {%- if textarea_input_label != blank -%}
+                <label for="{{- textarea_input_id -}}"
+                       class="contact-form__input-label"
+                >
+                  {{- textarea_input_label -}}
+                </label>
+              {%- endif -%}
+
+              <textarea name="contact[{{- textarea_input_name -}}]"
+                        placeholder="{{- textarea_input_placeholder -}}"
+                        id="{{- textarea_input_id -}}"
+                        class="contact-form__textarea-input"
+                        rows="3"
+                        {% if textarea_input_required %}required{% endif %}
+              ></textarea>
+
+              {%- if textarea_input_bottom_text != blank -%}
+                <p class="contact-form__input-bottom-text">
+                  {{- textarea_input_bottom_text -}}
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- when 'select_input' -%}
+        {%- assign select_input_required = block.settings.select_input_required -%}
+        {%- assign select_input_label = block.settings.select_input_label -%}
+        {%- assign select_input_name = block.settings.select_input_name -%}
+        {%- assign select_input_placeholder = block.settings.select_input_placeholder -%}
+        {%- assign select_input_options_values = block.settings.select_input_options_values -%}
+        {%- assign select_input_options_labels = block.settings.select_input_options_labels -%}
+
+        {%- assign select_input_options_values_array = block.settings.select_input_options_values | split: ";" -%}
+        {%- assign select_input_options_labels_array = block.settings.select_input_options_labels | split: ";" -%}
+
+        {%- assign select_input_bottom_text = block.settings.select_input_bottom_text -%}
+
+        {%- assign select_input_width = block.settings.select_input_width -%}
+        {%- assign select_input_id = block.settings.select_input_name | handleize | append: block.id -%}
+
+        {%- capture select_input_width_variable -%}
+          --form-element-width: {{- select_input_width -}}%;
+        {%- endcapture -%}
+
+        {%- if select_input_name != blank and select_input_options_values != blank and select_input_options_labels != blank -%}
+          <div class="contact-form__element"
+               style="{{- select_input_width_variable -}}"
+          >
+            <div class="contact-form__input-container">
+              {%- if select_input_label != blank -%}
+                <label for="{{- select_input_id -}}"
+                       class="contact-form__input-label"
+                >
+                  {{- select_input_label -}}
+                </label>
+              {%- endif -%}
+
+              <select name="contact[{{- select_input_name -}}]"
+                      id="{{- select_input_id -}}"
+                      class="contact-form__select-input"
+                      {% if select_input_required %}required{% endif %}
+              >
+                {%- if select_input_placeholder != blank -%}
+                  <option value="" selected disabled hidden>{{- select_input_placeholder -}}</option>
+                {%- endif -%}
+
+                {%- for select_input_option_value in select_input_options_values_array -%}
+                  {% assign select_input_option_value = select_input_option_value | strip %}
+                  {% assign select_input_option_label = select_input_options_labels_array[forloop.index0] | strip %}
+                  <option value="{{- select_input_option_value -}}">{{- select_input_option_label -}}</option>
+                {%- endfor -%}
+              </select>
+
+              {%- if select_input_bottom_text != blank -%}
+                <p class="contact-form__input-bottom-text">
+                  {{- select_input_bottom_text -}}
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+
+        {%- endif -%}
+      {%- when 'checkbox_input' -%}
+        {%- assign checkbox_input_required = block.settings.checkbox_input_required -%}
+        {%- assign checkbox_input_label = block.settings.checkbox_input_label -%}
+        {%- assign checkbox_input_options_names = block.settings.checkbox_input_options_names -%}
+        {%- assign checkbox_input_options_values = block.settings.checkbox_input_options_values -%}
+        {%- assign checkbox_input_options_labels = block.settings.checkbox_input_options_labels -%}
+
+        {%- assign checkbox_input_options_names_array = block.settings.checkbox_input_options_names | split: ";" -%}
+        {%- assign checkbox_input_options_values_array = block.settings.checkbox_input_options_values | split: ";" -%}
+        {%- assign checkbox_input_options_labels_array = block.settings.checkbox_input_options_labels | split: ";" -%}
+
+        {%- assign checkbox_input_bottom_text = block.settings.checkbox_input_bottom_text -%}
+        {%- assign checkbox_input_width = block.settings.checkbox_input_width -%}
+
+        {%- capture checkbox_input_width_variable -%}
+          --form-element-width: {{- checkbox_input_width -}}%;
+        {%- endcapture -%}
+
+        {%- if checkbox_input_options_names != blank and checkbox_input_options_values != blank and checkbox_input_options_labels != blank -%}
+          <div class="contact-form__element"
+               style="{{- checkbox_input_width_variable -}}"
+          >
+            <div class="contact-form__input-container">
+              {%- if checkbox_input_label != blank -%}
+                <p class="contact-form__input-label"
+                >
+                  {{- checkbox_input_label -}}
+                </p>
+              {%- endif -%}
+
+              <ul class="contact-form_checkbox-list">
+                {%- for checkbox_input_options_name in checkbox_input_options_names_array -%}
+                  {%- assign checkbox_input_option_name = checkbox_input_options_name | strip -%}
+                  {%- assign checkbox_input_option_value = checkbox_input_options_values_array[forloop.index0] | strip -%}
+                  {%- assign checkbox_input_option_label = checkbox_input_options_labels_array[forloop.index0] | strip -%}
+                  {%- assign checkbox_input_id = checkbox_input_option_name | handleize | append: block.id -%}
+
+                  <li class="contact-form_checkbox-list-item">
+                    <div class="contact-form_checkbox-item">
+                      <input type="checkbox"
+                             class="contact-form_checkbox"
+                             name="contact[{{- checkbox_input_option_name -}}]"
+                             value="{{- checkbox_input_option_value -}}"
+                             id="{{- checkbox_input_id -}}"
+                             {% if checkbox_input_required %}required{% endif %}
+                      >
+                      <label for="{{- checkbox_input_id -}}"
+                             class="contact-form_checkbox-label"
+                      >
+                        <span class="contact-form_checkbox-label-checkbox"></span>
+                        {{ checkbox_input_option_label }}
+                      </label>
+                    </div>
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+              {%- if checkbox_input_bottom_text != blank -%}
+                <p class="contact-form__input-bottom-text">
+                  {{- checkbox_input_bottom_text -}}
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- when 'radiobutton_input' -%}
+        {%- assign radiobutton_type = block.settings.radiobutton_type -%}
+        {%- assign radiobutton_input_required = block.settings.radiobutton_input_required -%}
+        {%- assign radiobutton_input_label = block.settings.radiobutton_input_label -%}
+        {%- assign radiobutton_input_name = block.settings.radiobutton_input_name -%}
+        {%- assign radiobutton_input_options_values = block.settings.radiobutton_input_options_values -%}
+        {%- assign radiobutton_input_options_labels = block.settings.radiobutton_input_options_labels -%}
+
+        {%- assign radiobutton_input_options_values_array = block.settings.radiobutton_input_options_values | split: ";" -%}
+        {%- assign radiobutton_input_options_labels_array = block.settings.radiobutton_input_options_labels | split: ";" -%}
+
+        {%- assign radiobutton_input_bottom_text = block.settings.radiobutton_input_bottom_text -%}
+        {%- assign radiobutton_input_width = block.settings.radiobutton_input_width -%}
+
+        {%- assign radiobutton_type_class = "" -%}
+        {%- if radiobutton_type == 'checkbox' -%}
+          {%- assign radiobutton_type_class = "contact-form_radiobutton-label-radiobutton--checkbox" -%}
+        {%- endif -%}
+
+        {%- capture radiobutton_input_width_variable -%}
+          --form-element-width: {{- radiobutton_input_width -}}%;
+        {%- endcapture -%}
+
+        {%- if radiobutton_input_name != blank and radiobutton_input_options_values != blank and radiobutton_input_options_labels != blank -%}
+          <div class="contact-form__element"
+               style="{{- radiobutton_input_width_variable -}}"
+          >
+            <div class="contact-form__input-container">
+              {%- if radiobutton_input_label != blank -%}
+                <p class="contact-form__input-label"
+                >
+                  {{- radiobutton_input_label -}}
+                </p>
+              {%- endif -%}
+
+              <ul class="contact-form_radiobutton-list">
+                {%- for radiobutton_input_options_values in radiobutton_input_options_values_array -%}
+                  {%- assign radiobutton_input_option_value = radiobutton_input_options_values | strip -%}
+                  {%- assign radiobutton_input_option_label = radiobutton_input_options_labels_array[forloop.index0] | strip -%}
+                  {%- assign radiobutton_input_id = radiobutton_input_name | handleize | append: radiobutton_input_option_value | handleize | append: block.id -%}
+
+                  <li class="contact-form_radiobutton-list-item">
+                    <div class="contact-form_radiobutton-item">
+                      <input type="radio"
+                             class="contact-form_radiobutton"
+                             name="contact[{{- radiobutton_input_name -}}]"
+                             value="{{- radiobutton_input_option_value -}}"
+                             id="{{- radiobutton_input_id -}}"
+                             {% if radiobutton_input_required %}required{% endif %}
+                      >
+                      <label for="{{- radiobutton_input_id -}}"
+                             class="contact-form_radiobutton-label"
+                      >
+                        <span class="contact-form_radiobutton-label-radiobutton {{ radiobutton_type_class }}"></span>
+                        {{ radiobutton_input_option_label }}
+                      </label>
+                    </div>
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+              {%- if radiobutton_input_bottom_text != blank -%}
+                <p class="contact-form__input-bottom-text">
+                  {{- radiobutton_input_bottom_text -}}
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- when 'submit_button' -%}
+        {%- assign submit_button_text = block.settings.submit_button_text -%}
+        {%- assign submit_button_position = block.settings.submit_button_position -%}
+
+
+        {%- capture submit_button_position_variable -%}
+          --submit-button-position: {{- submit_button_position -}};
+        {%- endcapture -%}
+
+        {%- if submit_button_text != blank -%}
+
+          {%- capture message_position_variable -%}
+            --message-position: {{- message_position -}};
+          {%- endcapture -%}
+
+          {%- if form.posted_successfully? -%}
+            <div class="contact-form__element contact-form__element--big-spacing">
+              <p class="contact-form__message contact-form__message--success"
+                 style="{{- message_position_variable -}}"
+                 role="alert"
+                 tabindex="-1"
+                 autofocus
+              >
+                {{- success_message -}}
+              </p>
+            </div>
+          {%- elsif form.errors -%}
+            <div class="contact-form__element contact-form__element--big-spacing">
+              <p class="contact-form__message contact-form__message--error"
+                 style="{{- message_position_variable -}}"
+                 role="alert"
+                 tabindex="-1"
+                 autofocus
+              >
+                {{ form.errors.messages['form'] }}
+              </p>
+            </div>
+          {%- endif -%}
+
+
+          <div class="contact-form__element contact-form__element--big-spacing">
+            <div class="contact-form__submit-button-container"
+                 style="{{- submit_button_position_variable -}}"
+            >
+              <button type="submit" class="contact-form__submit-button">
+                {{- submit_button_text -}}
+              </button>
+            </div>
+          </div>
+        {%- endif -%}
+    {%- endcase -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if form_content != blank -%}
+  <section class="contact-form">
+    <div class="contact-form__outer-container">
+      <div class="contact-form__header">
+        {%- if main_heading_text != blank -%}
+          <h1 class="contact-form__main-heading"
+              style="{{ main_heading_text_position_variable }}"
+          >
+            {{- main_heading_text -}}
+          </h1>
+        {%- endif -%}
+
+        {%- if main_text_content != blank -%}
+          <div class="contact-form__main-text-content"
+               style="{{- main_text_content_position_variable -}}"
+          >
+            {{- main_text_content -}}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="contact-form__form-bordered-container">
+        <div class="contact-form__form-wrapper">
+          {%- assign contact_form_id = 'ContactForm' | append: section.id -%}
+
+          {%- form 'contact', class: "contact-form__form", id: contact_form_id -%}
+            {{- form_content -}}
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{%- schema -%}
+{
+  "name": "Contact form builder",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Main heading"
+    },
+    {
+      "type": "text",
+      "id": "main_heading_text",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "main_heading_text_position",
+      "label": "Heading position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Main text content"
+    },
+    {
+      "type": "richtext",
+      "id": "main_text_content",
+      "label": "Text content"
+    },
+    {
+      "type": "select",
+      "id": "main_text_content_position",
+      "label": "Text content position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Form messages"
+    },
+    {
+      "type": "paragraph",
+      "content": "Error/success messages are displayed before the Submit button"
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing"
+    },
+    {
+      "type": "select",
+      "id": "message_position",
+      "label": "Form messages position (error/success)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading_text",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_text_position",
+          "label": "Heading position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "text_content",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text_content",
+          "label": "Text content"
+        },
+        {
+          "type": "select",
+          "id": "text_content_position",
+          "label": "Text content position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    },
+    {
+      "type": "separator",
+      "name": "Separator",
+      "settings": [
+      ]
+    },
+    {
+      "type": "text_input",
+      "name": "Text input",
+      "settings": [
+        {
+          "type": "select",
+          "id": "input_type",
+          "label": "Input type",
+          "options": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "number",
+              "label": "Number"
+            },
+            {
+              "value": "phone",
+              "label": "Phone number"
+            }
+          ],
+          "default": "text"
+        },
+        {
+          "type": "checkbox",
+          "id": "text_input_required",
+          "label": "Is required",
+          "default": false,
+          "info": "If this setting is enabled, the user must complete the field to submit the form"
+        },
+        {
+          "type": "text",
+          "id": "text_input_label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "text_input_name",
+          "label": "Name *",
+          "info": "Required field || Responsible for the field name in the submitted form results"
+        },
+        {
+          "type": "text",
+          "id": "text_input_placeholder",
+          "label": "Placeholder"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_input_bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "image_picker",
+          "id": "text_input_icon",
+          "label": "Icon"
+        },
+        {
+          "type": "select",
+          "id": "text_input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "100",
+              "label": "1"
+            },
+            {
+              "value": "50",
+              "label": "1/2"
+            },
+            {
+              "value": "66.666",
+              "label": "2/3"
+            },
+            {
+              "value": "33.333",
+              "label": "1/3"
+            }
+          ],
+          "default": "100"
+        }
+      ]
+    },
+    {
+      "type": "email_input",
+      "name": "Email input *",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Required block"
+        },
+        {
+          "type": "text",
+          "id": "email_input_label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "email_input_placeholder",
+          "label": "Placeholder"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "email_input_bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "select",
+          "id": "email_input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "100",
+              "label": "1"
+            },
+            {
+              "value": "50",
+              "label": "1/2"
+            },
+            {
+              "value": "66.666",
+              "label": "2/3"
+            },
+            {
+              "value": "33.333",
+              "label": "1/3"
+            }
+          ],
+          "default": "100"
+        }
+      ]
+    },
+    {
+      "type": "textarea_input",
+      "name": "Textarea input",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "textarea_input_required",
+          "label": "Is required",
+          "default": false,
+          "info": "If this setting is enabled, the user must complete the field to submit the form"
+        },
+        {
+          "type": "text",
+          "id": "textarea_input_label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "textarea_input_name",
+          "label": "Name *",
+          "info": "Required field || Responsible for the field name in the submitted form results"
+        },
+        {
+          "type": "text",
+          "id": "textarea_input_placeholder",
+          "label": "Placeholder"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "textarea_input_bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "select",
+          "id": "textarea_input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "100",
+              "label": "1"
+            },
+            {
+              "value": "50",
+              "label": "1/2"
+            },
+            {
+              "value": "66.666",
+              "label": "2/3"
+            },
+            {
+              "value": "33.333",
+              "label": "1/3"
+            }
+          ],
+          "default": "100"
+        }
+      ]
+    },
+    {
+      "type": "select_input",
+      "name": "Select input",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "select_input_required",
+          "label": "Is required",
+          "default": false,
+          "info": "If this setting is enabled, the user must complete the field to submit the form"
+        },
+        {
+          "type": "text",
+          "id": "select_input_label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "select_input_name",
+          "label": "Name *",
+          "info": "Required field || Responsible for the field name in the submitted form results"
+        },
+        {
+          "type": "text",
+          "id": "select_input_placeholder",
+          "label": "Placeholder"
+        },
+        {
+          "type": "textarea",
+          "id": "select_input_options_values",
+          "label": "Options values *",
+          "info": "Required field || Responsible for the fields (select options) values in the submitted form results || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options labels *' field"
+        },
+        {
+          "type": "textarea",
+          "id": "select_input_options_labels",
+          "label": "Options labels *",
+          "info": "Required field || Responsible for the field (select options) labels in the form || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options values *' field"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "select_input_bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "select",
+          "id": "select_input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "100",
+              "label": "1"
+            },
+            {
+              "value": "50",
+              "label": "1/2"
+            },
+            {
+              "value": "66.666",
+              "label": "2/3"
+            },
+            {
+              "value": "33.333",
+              "label": "1/3"
+            }
+          ],
+          "default": "100"
+        }
+      ]
+    },
+    {
+      "type": "checkbox_input",
+      "name": "Checkbox input",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "checkbox_input_required",
+          "label": "Is required",
+          "default": false,
+          "info": "If this setting is enabled, the user must complete the field to submit the form. Applies to all checkboxes of this block"
+        },
+        {
+          "type": "text",
+          "id": "checkbox_input_label",
+          "label": "Label"
+        },
+        {
+          "type": "textarea",
+          "id": "checkbox_input_options_names",
+          "label": "Options names *",
+          "info": "Required field || Responsible for the fields names in the submitted form results || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options values *' and 'Options labels *' fields"
+        },
+        {
+          "type": "textarea",
+          "id": "checkbox_input_options_values",
+          "label": "Options values *",
+          "info": "Required field || Responsible for the fields (checkboxes) values in the submitted form results || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options names *' and 'Options labels *' fields"
+        },
+        {
+          "type": "textarea",
+          "id": "checkbox_input_options_labels",
+          "label": "Options labels *",
+          "info": "Required field || Responsible for the fields (checkboxes) labels in the form || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options names *' and 'Options values *' fields"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "checkbox_input_bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "select",
+          "id": "checkbox_input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "100",
+              "label": "1"
+            },
+            {
+              "value": "50",
+              "label": "1/2"
+            },
+            {
+              "value": "66.666",
+              "label": "2/3"
+            },
+            {
+              "value": "33.333",
+              "label": "1/3"
+            }
+          ],
+          "default": "100"
+        }
+      ]
+    },
+    {
+      "type": "radiobutton_input",
+      "name": "Radiobutton input",
+      "settings": [
+        {
+          "type": "select",
+          "id": "radiobutton_type",
+          "label": "Radiobutton type",
+          "options": [
+            {
+              "value": "radiobutton",
+              "label": "Radiobutton"
+            },
+            {
+              "value": "checkbox",
+              "label": "Checkbox"
+            }
+          ],
+          "default": "checkbox"
+        },
+        {
+          "type": "checkbox",
+          "id": "radiobutton_input_required",
+          "label": "Is required",
+          "default": false,
+          "info": "If this setting is enabled, the user must complete the field to submit the form"
+        },
+        {
+          "type": "text",
+          "id": "radiobutton_input_label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "radiobutton_input_name",
+          "label": "Name *",
+          "info": "Required field || Responsible for the field name in the submitted form results"
+        },
+        {
+          "type": "textarea",
+          "id": "radiobutton_input_options_values",
+          "label": "Options values *",
+          "info": "Required field || Responsible for the fields (radiobuttons) values in the submitted form results || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options labels *' field"
+        },
+        {
+          "type": "textarea",
+          "id": "radiobutton_input_options_labels",
+          "label": "Options labels *",
+          "info": "Required field || Responsible for the fields (radiobuttons) labels in the form || You must enter values using the separator ';' || The number of values separated by the separator must match the number of values separated by the separator of the 'Options values *' field"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "radiobutton_input_bottom_text",
+          "label": "Bottom text"
+        },
+        {
+          "type": "select",
+          "id": "radiobutton_input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "100",
+              "label": "1"
+            },
+            {
+              "value": "50",
+              "label": "1/2"
+            },
+            {
+              "value": "66.666",
+              "label": "2/3"
+            },
+            {
+              "value": "33.333",
+              "label": "1/3"
+            }
+          ],
+          "default": "100"
+        }
+      ]
+    },
+    {
+      "type": "submit_button",
+      "name": "Submit button *",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Required block"
+        },
+        {
+          "type": "text",
+          "id": "submit_button_text",
+          "label": "Submit button text",
+          "default": "Submit"
+        },
+        {
+          "type": "select",
+          "id": "submit_button_position",
+          "label": "Submit button position",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact form builder"
+    }
+  ]
+}
+{%- endschema -%}

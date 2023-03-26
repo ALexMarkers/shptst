@@ -1,0 +1,333 @@
+{
+  "sections": {
+    "contact-form-builder": {
+      "type": "contact-form-builder",
+      "blocks": {
+        "278a9985-2a0b-4bfd-b3a4-1eac6a6cad85": {
+          "type": "text_content",
+          "settings": {
+            "text_content": "<p>If your needs extend beyond our Customizer Tool, please share your custom order details below. We will follow up with a custom quote within 1 business day.<\/p>",
+            "text_content_position": "center"
+          }
+        },
+        "178208a4-f580-45b7-bdf2-0fe51986aa77": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "c5dd375b-6804-4938-9931-2cca57c1c605": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading_text": "Custom wallpaper details",
+            "heading_text_position": "center"
+          }
+        },
+        "c702cef4-8edf-42ae-ba44-4656f9736b2c": {
+          "type": "select_input",
+          "disabled": true,
+          "settings": {
+            "select_input_required": true,
+            "select_input_label": "Paper name",
+            "select_input_name": "Paper name",
+            "select_input_placeholder": "Please select",
+            "select_input_options_values": "Paper 1;\nPaper 2;\nPaper 3;\nPaper 4;",
+            "select_input_options_labels": "Paper 1;\nPaper 2;\nPaper 3;\nPaper 4;",
+            "select_input_bottom_text": "",
+            "select_input_width": "100"
+          }
+        },
+        "ca10ef90-1b68-424d-b6f7-7d311dbf23c1": {
+          "type": "select_input",
+          "disabled": true,
+          "settings": {
+            "select_input_required": true,
+            "select_input_label": "Color",
+            "select_input_name": "Color",
+            "select_input_placeholder": "Please select",
+            "select_input_options_values": "White;\nBlack;\nRed;\nBlue;\nGreen;",
+            "select_input_options_labels": "White;\nBlack;\nRed;\nBlue;\nGreen;",
+            "select_input_bottom_text": "Add $150 per color, includes digital and physical proof. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "select_input_width": "100"
+          }
+        },
+        "63ffea25-4aa9-448f-aa20-eb83ac6b5c7b": {
+          "type": "text_input",
+          "disabled": true,
+          "settings": {
+            "input_type": "number",
+            "text_input_required": true,
+            "text_input_label": "Total width",
+            "text_input_name": "Total width",
+            "text_input_placeholder": "Enter number",
+            "text_input_bottom_text": "Include all walls, windows & doors",
+            "text_input_width": "33.333"
+          }
+        },
+        "75957e47-ff11-4156-98ad-cbc4e01521bd": {
+          "type": "text_input",
+          "disabled": true,
+          "settings": {
+            "input_type": "number",
+            "text_input_required": true,
+            "text_input_label": "Total height",
+            "text_input_name": "Total height",
+            "text_input_placeholder": "Enter number",
+            "text_input_bottom_text": "Floor to ceiling. *A cushion of 4\" will be added to the length listed on this form for shrink (industry standard)",
+            "text_input_width": "33.333"
+          }
+        },
+        "aa03b818-647e-4e32-95cd-9f47c808dc67": {
+          "type": "select_input",
+          "disabled": true,
+          "settings": {
+            "select_input_required": true,
+            "select_input_label": "Unit of Measurement",
+            "select_input_name": "Unit of Measurement",
+            "select_input_placeholder": "Please select",
+            "select_input_options_values": "Inches;\nCentimeters;\nMilimeters;\nMeters;",
+            "select_input_options_labels": "Inches;\nCentimeters;\nMilimeters;\nMeters;",
+            "select_input_bottom_text": "",
+            "select_input_width": "33.333"
+          }
+        },
+        "8065d0fa-cf98-46fc-97e1-bdd92e23c39d": {
+          "type": "radiobutton_input",
+          "disabled": true,
+          "settings": {
+            "radiobutton_type": "checkbox",
+            "radiobutton_input_required": true,
+            "radiobutton_input_label": "Does your project include adjoining walls that come full circle? (add $25)",
+            "radiobutton_input_name": "Does your project include adjoining walls that come full circle?  (add $25)",
+            "radiobutton_input_options_values": "Yes;\nNo;",
+            "radiobutton_input_options_labels": "Yes;\nNo;",
+            "radiobutton_input_bottom_text": "",
+            "radiobutton_input_width": "100"
+          }
+        },
+        "a9c1b0c8-061d-4f23-88fe-b2d66944c4ea": {
+          "type": "checkbox_input",
+          "disabled": true,
+          "settings": {
+            "checkbox_input_required": false,
+            "checkbox_input_label": "I have plans to submit",
+            "checkbox_input_options_names": "I have plans to submit;",
+            "checkbox_input_options_values": "I need assistance decipher my plans ($150);",
+            "checkbox_input_options_labels": "I need assistance decipher my plans ($150);",
+            "checkbox_input_bottom_text": "Plans are necessary for unusual spaces: stairs, doors, windows, arches, chair rails, wainscoting, etc.",
+            "checkbox_input_width": "100"
+          }
+        },
+        "2fb9eb6e-5f36-4d55-bd16-4852d43350fa": {
+          "type": "select_input",
+          "disabled": true,
+          "settings": {
+            "select_input_required": false,
+            "select_input_label": "Paper Type",
+            "select_input_name": "Paper Type",
+            "select_input_placeholder": "Please select",
+            "select_input_options_values": "Matte;\nPearl;\nPremium Matte;\nVinyl Type II;",
+            "select_input_options_labels": "Matte;\nPearl;\nPremium Matte;\nVinyl Type II;",
+            "select_input_bottom_text": "",
+            "select_input_width": "50"
+          }
+        },
+        "31f4c2d8-6276-42cf-b0e7-902073283461": {
+          "type": "select_input",
+          "disabled": true,
+          "settings": {
+            "select_input_required": true,
+            "select_input_label": "Processing",
+            "select_input_name": "Processing",
+            "select_input_placeholder": "Please select",
+            "select_input_options_values": "Standard 3–4 weeks;\nRush 7 business days (+ $250);",
+            "select_input_options_labels": "Standard 3–4 weeks;\nRush 7 business days (+ $250);",
+            "select_input_bottom_text": "",
+            "select_input_width": "50"
+          }
+        },
+        "8b2c3df3-b01d-4c32-802e-886006336d95": {
+          "type": "radiobutton_input",
+          "disabled": true,
+          "settings": {
+            "radiobutton_type": "checkbox",
+            "radiobutton_input_required": false,
+            "radiobutton_input_label": "Include a sample (all custom color orders will receive a physical sample)",
+            "radiobutton_input_name": "Include a sample",
+            "radiobutton_input_options_values": "Yes;\nNo;",
+            "radiobutton_input_options_labels": "Yes;\nNo;",
+            "radiobutton_input_bottom_text": "",
+            "radiobutton_input_width": "100"
+          }
+        },
+        "38a8e89c-817a-45f5-8cf8-36242f386896": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "5f2ad6b5-b18b-4ca0-a728-bcb6dc417158": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading_text": "Order details",
+            "heading_text_position": "center"
+          }
+        },
+        "5bda857f-0bab-4511-90a0-4cb9e9a4e7a5": {
+          "type": "text_input",
+          "disabled": true,
+          "settings": {
+            "input_type": "text",
+            "text_input_required": true,
+            "text_input_label": "Contact name",
+            "text_input_name": "Contact name",
+            "text_input_placeholder": "",
+            "text_input_bottom_text": "",
+            "text_input_width": "100"
+          }
+        },
+        "8d10e809-1987-455e-9b71-61c4a861b647": {
+          "type": "text_input",
+          "disabled": true,
+          "settings": {
+            "input_type": "text",
+            "text_input_required": false,
+            "text_input_label": "Business name (optional)",
+            "text_input_name": "Business name",
+            "text_input_placeholder": "",
+            "text_input_bottom_text": "",
+            "text_input_width": "100"
+          }
+        },
+        "f978ff6e-c40c-4e5f-995e-48a67a082bfd": {
+          "type": "email_input",
+          "settings": {
+            "email_input_label": "Email",
+            "email_input_placeholder": "Email",
+            "email_input_bottom_text": "",
+            "email_input_width": "100"
+          }
+        },
+        "518c5a18-fa5b-4781-9448-01d6f550c0fe": {
+          "type": "text_input",
+          "settings": {
+            "input_type": "phone",
+            "text_input_required": true,
+            "text_input_label": "Phone number",
+            "text_input_name": "Phone number",
+            "text_input_placeholder": "",
+            "text_input_bottom_text": "",
+            "text_input_width": "100"
+          }
+        },
+        "88c8fae5-cf2d-45f3-9909-c9d4b2decb0b": {
+          "type": "textarea_input",
+          "disabled": true,
+          "settings": {
+            "textarea_input_required": true,
+            "textarea_input_label": "Shipping address",
+            "textarea_input_name": "Shipping address",
+            "textarea_input_placeholder": "",
+            "textarea_input_bottom_text": "",
+            "textarea_input_width": "100"
+          }
+        },
+        "30aa2ebc-7df9-4846-a290-47ed38f686ac": {
+          "type": "textarea_input",
+          "disabled": true,
+          "settings": {
+            "textarea_input_required": true,
+            "textarea_input_label": "Billing address",
+            "textarea_input_name": "Billing address",
+            "textarea_input_placeholder": "",
+            "textarea_input_bottom_text": "",
+            "textarea_input_width": "100"
+          }
+        },
+        "f12d18bc-cb55-46bd-a2bc-c1531634e3fd": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "2993b83f-c4df-4068-ac98-8e10c03f66e2": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading_text": "Terms & Conditions",
+            "heading_text_position": "center"
+          }
+        },
+        "3c5bf09d-6abf-4d9d-a321-dffd8d828f55": {
+          "type": "text_content",
+          "disabled": true,
+          "settings": {
+            "text_content": "<p><strong>LOREM<\/strong><\/p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p><p><br\/><strong>LOREM IPSUM DOLOR<\/strong><\/p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <\/p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p><ul><li>Lorem<\/li><li>Ipsum<\/li><li>Dolor<\/li><\/ul><p><br\/><strong>LOREM IPSUM<\/strong><\/p><p><strong>Lorem ipsum<\/strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <em>Ut enim ad minim veniam<\/em>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href=\"#\" title=\"#\">Duis aute<\/a> irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+            "text_content_position": "left"
+          }
+        },
+        "b451b928-c750-407e-aa01-bac05d89e31e": {
+          "type": "checkbox_input",
+          "disabled": true,
+          "settings": {
+            "checkbox_input_required": true,
+            "checkbox_input_label": "",
+            "checkbox_input_options_names": "Agree to the terms and conditions of this custom order request;",
+            "checkbox_input_options_values": "Yes;",
+            "checkbox_input_options_labels": "I agree to the terms and conditions of this custom order request.",
+            "checkbox_input_bottom_text": "",
+            "checkbox_input_width": "100"
+          }
+        },
+        "7b9ffad7-90d4-43ed-a039-562ad164b5bf": {
+          "type": "submit_button",
+          "settings": {
+            "submit_button_text": "Submit",
+            "submit_button_position": "center"
+          }
+        }
+      },
+      "block_order": [
+        "278a9985-2a0b-4bfd-b3a4-1eac6a6cad85",
+        "178208a4-f580-45b7-bdf2-0fe51986aa77",
+        "c5dd375b-6804-4938-9931-2cca57c1c605",
+        "c702cef4-8edf-42ae-ba44-4656f9736b2c",
+        "ca10ef90-1b68-424d-b6f7-7d311dbf23c1",
+        "63ffea25-4aa9-448f-aa20-eb83ac6b5c7b",
+        "75957e47-ff11-4156-98ad-cbc4e01521bd",
+        "aa03b818-647e-4e32-95cd-9f47c808dc67",
+        "8065d0fa-cf98-46fc-97e1-bdd92e23c39d",
+        "a9c1b0c8-061d-4f23-88fe-b2d66944c4ea",
+        "2fb9eb6e-5f36-4d55-bd16-4852d43350fa",
+        "31f4c2d8-6276-42cf-b0e7-902073283461",
+        "8b2c3df3-b01d-4c32-802e-886006336d95",
+        "38a8e89c-817a-45f5-8cf8-36242f386896",
+        "5f2ad6b5-b18b-4ca0-a728-bcb6dc417158",
+        "5bda857f-0bab-4511-90a0-4cb9e9a4e7a5",
+        "8d10e809-1987-455e-9b71-61c4a861b647",
+        "f978ff6e-c40c-4e5f-995e-48a67a082bfd",
+        "518c5a18-fa5b-4781-9448-01d6f550c0fe",
+        "88c8fae5-cf2d-45f3-9909-c9d4b2decb0b",
+        "30aa2ebc-7df9-4846-a290-47ed38f686ac",
+        "f12d18bc-cb55-46bd-a2bc-c1531634e3fd",
+        "2993b83f-c4df-4068-ac98-8e10c03f66e2",
+        "3c5bf09d-6abf-4d9d-a321-dffd8d828f55",
+        "b451b928-c750-407e-aa01-bac05d89e31e",
+        "7b9ffad7-90d4-43ed-a039-562ad164b5bf"
+      ],
+      "settings": {
+        "main_heading_text": "Custom Made Easy",
+        "main_heading_text_position": "center",
+        "main_text_content": "<p>Today is your lucky day! We'd be happy to line up a custom order for your project.<\/p><p><em>*During this process you can select a section of the artwork to be transformed into a custom fit mural for your project!<\/em><\/p>",
+        "main_text_content_position": "center",
+        "success_message": "Thanks for subscribing",
+        "message_position": "center"
+      }
+    }
+  },
+  "order": [
+    "contact-form-builder"
+  ]
+}
