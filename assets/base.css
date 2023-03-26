@@ -1,7 +1,7 @@
 /* Color custom properties */
 
 body {
-background-color: red;
+background-color: red !important;
 }
 
 :root,
