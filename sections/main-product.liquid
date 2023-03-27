@@ -5,9 +5,11 @@
 >
 
   
-  {% assign accordions = product.metafields.custom.accordions.values %}
-  <h1 class='product-test-accordion'>{{ accordions }}</h1>
-  
+  {% assign accordions = product.metafields.custom.accordions %}
+  {% for accordion in accordions %}
+  <h1 class='product-test-accordion'>{{ accordion }}</h1>
+{% endfor %}
+    
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
