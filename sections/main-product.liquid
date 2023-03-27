@@ -7,7 +7,7 @@
   
   {% assign accordions = product.metafields.custom.accordions.value %}
   {% for accordion in accordions %}
-     <h1>{{ accordion.heading }}</h1>
+     <h1>{{ accordion.heading | metafield_tag }}</h1>
      <p>{{ accordion.description | metafield_tag }}</p>
   {% endfor %}
     
