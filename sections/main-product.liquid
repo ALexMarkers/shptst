@@ -3,6 +3,11 @@
   class="page-width section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
 >
+
+  
+  {% assign accordions = product.metafields.custom.accordions %}
+  <h1 class='product-test-accordion'>{{ accordions }}</h1>
+  
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
