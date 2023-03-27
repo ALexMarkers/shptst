@@ -9,7 +9,7 @@
   {% for accordion in accordions %}
      <h1>{{ accordion.heading | metafield_tag }}</h1>
      <p>{{ accordion.description | metafield_tag }}</p>
-    {{ accordion.product_accordion_blocks.value.product_text }}
+    {{ accordion.product_accordion_blocks.value.product_text | metafield_tag }}
   {% endfor %}
     
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
