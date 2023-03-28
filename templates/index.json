@@ -421,18 +421,8 @@
     },
     "4a7e8006-a57b-4812-8c29-8f969cdc609b": {
       "type": "main-bundle",
-      "blocks": {
-        "ac9bf4b9-4bc6-4d3a-8a0c-e5fa38433902": {
-          "type": "bundle",
-          "settings": {
-            "bundle_metaobject": "bundles-p6qzq18a"
-          }
-        }
-      },
-      "block_order": [
-        "ac9bf4b9-4bc6-4d3a-8a0c-e5fa38433902"
-      ],
       "settings": {
+        "bundle_metaobject": "bundles-p6qzq18a"
       }
     }
   },
