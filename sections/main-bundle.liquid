@@ -1,4 +1,5 @@
-{{ shop.metaobjects['bundels'][section.settings.bundle_metaobject] }}
+{{ shop.metaobjects['bundles'][section.settings.bundle_metaobject] }}
+{{ shop.metaobjects['bundles'][section.settings.bundle_metaobject].bundle }}
 <div class="bundle-main">
   {% for bundle in shop.metaobjects['bundles'][section.settings.bundle_metaobject].bundle.values %}
     {{ bundle }}
