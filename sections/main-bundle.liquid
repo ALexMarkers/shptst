@@ -1,5 +1,5 @@
 <div class="bundle-main">
-  {% for bundle in shop.metaobjects[bundle_metaobject] %}
+  {% for bundle in shop.metaobjects[bundle_metaobject].values %}
     {{ bundle }}
   {% endfor %}
 </div>
