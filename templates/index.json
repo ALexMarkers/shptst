@@ -1,5 +1,11 @@
 {
   "sections": {
+    "4a7e8006-a57b-4812-8c29-8f969cdc609b": {
+      "type": "main-bundle",
+      "settings": {
+        "bundle_metaobject": "bundles-p6qzq18a"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -418,15 +424,10 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "4a7e8006-a57b-4812-8c29-8f969cdc609b": {
-      "type": "main-bundle",
-      "settings": {
-        "bundle_metaobject": "bundles-p6qzq18a"
-      }
     }
   },
   "order": [
+    "4a7e8006-a57b-4812-8c29-8f969cdc609b",
     "image_banner",
     "rich_text",
     "featured_collection",
@@ -435,7 +436,6 @@
     "multicolumn",
     "baa6befc-654c-46e0-81c4-c0c85d5483d5",
     "d6a25b66-9973-44d5-a765-80ccc1394639",
-    "0110f9e8-5cd3-46f4-ba2a-51d0ce2bb0b0",
-    "4a7e8006-a57b-4812-8c29-8f969cdc609b"
+    "0110f9e8-5cd3-46f4-ba2a-51d0ce2bb0b0"
   ]
 }
