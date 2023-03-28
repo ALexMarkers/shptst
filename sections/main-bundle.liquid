@@ -1,5 +1,7 @@
 <div class="bundle-main">
-  
+  {% for bundle in shop.metaobjects[bundle_metaobject] %}
+    {{ bundle }}
+  {% endfor %}
 </div>
 
 {% schema %}
